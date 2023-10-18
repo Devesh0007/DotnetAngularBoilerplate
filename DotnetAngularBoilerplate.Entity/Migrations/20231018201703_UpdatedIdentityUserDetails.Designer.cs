@@ -4,6 +4,7 @@ using DotnetAngularBoilerplate.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotnetAngularBoilerplate.Entity.Migrations
 {
     [DbContext(typeof(DotnetAngularBoilerplateDbContext))]
-    partial class DotnetAngularBoilerplateDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231018201703_UpdatedIdentityUserDetails")]
+    partial class UpdatedIdentityUserDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

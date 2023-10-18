@@ -4,6 +4,7 @@ using DotnetAngularBoilerplate.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotnetAngularBoilerplate.Entity.Migrations
 {
     [DbContext(typeof(DotnetAngularBoilerplateDbContext))]
-    partial class DotnetAngularBoilerplateDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231018194152_RolesSeeded")]
+    partial class RolesSeeded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,9 +55,6 @@ namespace DotnetAngularBoilerplate.Entity.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -125,28 +125,28 @@ namespace DotnetAngularBoilerplate.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bf37c61e-89cf-4554-8f1a-949da2e7993e",
+                            Id = "a24a42e1-59c9-452e-af8e-8177821e2af0",
                             ConcurrencyStamp = "1",
                             Name = "GlobalAdmin",
                             NormalizedName = "GlobalAdmin"
                         },
                         new
                         {
-                            Id = "9035dd1f-8709-4371-ab1f-b6254c72b655",
+                            Id = "ba3f75a6-d76b-41a1-9aa9-eaa93d88cbd2",
                             ConcurrencyStamp = "2",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "54f0e209-5d8d-404a-bb20-711a99572372",
+                            Id = "0060ea57-b4db-4712-8d9e-448d7fac472e",
                             ConcurrencyStamp = "3",
                             Name = "Manager",
                             NormalizedName = "Manager"
                         },
                         new
                         {
-                            Id = "da778f39-53c0-40b5-9896-57af71968dd5",
+                            Id = "684c9691-3669-4262-8c37-58215051c814",
                             ConcurrencyStamp = "4",
                             Name = "Analyst",
                             NormalizedName = "Analyst"

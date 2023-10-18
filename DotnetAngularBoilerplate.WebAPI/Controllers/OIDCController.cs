@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetAngularBoilerplate.WebAPI.Controllers
 {
@@ -7,6 +6,5 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
     [ApiController]
     public class OIDCController : ControllerBase
     {
-
     }
 }

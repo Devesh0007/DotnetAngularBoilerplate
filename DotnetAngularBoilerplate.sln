@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetAngularBoilerplate.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetAngularBoilerplate.UnitOfWork.Interface", "DotnetAngularBoilerplate.UnitOfWork.Interface\DotnetAngularBoilerplate.UnitOfWork.Interface.csproj", "{12B593FE-AA26-4612-A401-63964120B0BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetAngularBoilerplate.Mapper", "DotnetAngularBoilerplate.Mapper\DotnetAngularBoilerplate.Mapper.csproj", "{05E833E6-3C25-44F6-915A-A36E7A0714E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{12B593FE-AA26-4612-A401-63964120B0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12B593FE-AA26-4612-A401-63964120B0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12B593FE-AA26-4612-A401-63964120B0BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E833E6-3C25-44F6-915A-A36E7A0714E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E833E6-3C25-44F6-915A-A36E7A0714E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E833E6-3C25-44F6-915A-A36E7A0714E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E833E6-3C25-44F6-915A-A36E7A0714E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

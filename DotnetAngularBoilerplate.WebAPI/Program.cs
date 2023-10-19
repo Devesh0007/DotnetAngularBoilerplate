@@ -43,12 +43,12 @@ builder.Services.AddAuthentication(options =>
 
 
 // Adding Authentication
-builder.Services.AddAuthentication(options =>
- {
-     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
- }); 
+//builder.Services.AddAuthentication(options =>
+// {
+//     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+// }); 
 
  // Add services to the container.
 

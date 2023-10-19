@@ -1,7 +1,10 @@
 using DotnetAngularBoilerplate.Entity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,30 @@ builder.Services.AddDbContext<DotnetAngularBoilerplateDbContext>(options => opti
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<DotnetAngularBoilerplateDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+})
+.AddCookie()
+.AddOpenIdConnect(options =>
+{
+    options.Authority = "http://localhost:8080/realms/keycloak-dev/"; // Replace with your OIDC provider's URL
+    options.ClientId = "keycloak-dev-oidc";
+    options.ClientSecret = "JBcr2ZcyfxNbNBIaCsm5JEy1b7H69ICd";
+    options.ResponseType = "code";
+    options.Scope.Add("openid"); // Add any additional scopes you need
+    options.Scope.Add("profile"); // Add any additional scopes you need
+    options.SaveTokens = true;
+    options.RequireHttpsMetadata = false;
+    //options.SkipUnrecognizedRequests = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false // You might want to validate the issuer depending on your use case.
+    };
+});
+
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>

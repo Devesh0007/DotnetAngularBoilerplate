@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotnetAngularBoilerplate.Entity\DotnetAngularBoilerplate.Entity.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Mapper\DotnetAngularBoilerplate.Mapper.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Model\DotnetAngularBoilerplate.Model.csproj" />
   </ItemGroup>
 
 </Project>

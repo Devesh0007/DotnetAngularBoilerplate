@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Entity\DotnetAngularBoilerplate.Entity.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Model\DotnetAngularBoilerplate.Model.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Shared\DotnetAngularBoilerplate.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

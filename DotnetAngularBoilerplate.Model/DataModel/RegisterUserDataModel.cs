@@ -8,17 +8,11 @@ using System.Threading.Tasks;
 
 namespace DotnetAngularBoilerplate.Model.DataModel
 {
-    public class RegisterUserDataModel
+    public class RegisterUserDataModel: LoginUserDataModel
     {
-        public required string FirstName { get; set; }
-        public required string MiddleName { get; set; }
-        public required string LastName { get; set; }
-        public required string Email { get; set; }
-        [NotMapped]
-        public string UserName { get { return Email; } set { UserName = Email; } }
-        [PasswordPropertyText]
-        public required string Password { get; set; }
-        public required string Role { get; set; }
-
+        public string? FirstName { get; set; }
+        public string? MiddleName { get; set; }
+        public string? LastName { get; set; }
+        public string? Role { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-<app-navbar></app-navbar>
-<div id="right-panel" class="right-panel">
+<app-navbar *ngIf="isNavbarActive"></app-navbar>
+<div *ngIf="isNavbarActive" class="right-panel" >
     <app-header></app-header>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>
+
+<router-outlet *ngIf="!isNavbarActive"></router-outlet>

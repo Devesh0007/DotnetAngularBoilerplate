@@ -29,4 +29,9 @@
     <ProjectReference Include="..\DotnetAngularBoilerplate.Model\DotnetAngularBoilerplate.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ConfigurationSettings\" />
+    <Folder Include="Middlewares\" />
+  </ItemGroup>
+
 </Project>

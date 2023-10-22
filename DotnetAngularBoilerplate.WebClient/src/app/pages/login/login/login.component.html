@@ -27,7 +27,7 @@
                                         <div class="input-group-prepend input-group-lg">
                                             <div class="input-group-text">@</div>
                                         </div>
-                                        <input type="text" class="form-control " name="loginEmailUsername"
+                                        <input type="email" class="form-control " name="loginEmailUsername"
                                             placeholder="something@domain.com">
                                     </div>
                                 </div>
@@ -46,18 +46,39 @@
                                         </small> -->
                                     </div>
                                 </div>
-                                <div >
-                                    <p-checkbox [(ngModel)]="isRememberMeChecked" [binary]="true" label="Remember me" inputId="binary" ></p-checkbox>
-                                    <!-- <p-checkbox id="rememberMe" inputId="binary" [binary]="true" label="Remember me" [(ngModel)]="selectedValues"></p-checkbox> -->
-                                    <!-- <label for="rememberMe">Remember me</label> -->
-                                    
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p-checkbox [(ngModel)]="isRememberMeChecked" [binary]="true" label="Remember me" inputId="binary" ></p-checkbox>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button pButton type="button" label="Forgot password" class="p-button-link forgot-button" (onClick)="forgotPassword()"></button>
+                                    </div>
                                 </div>
-                                <div class="form-group card flex justify-content-center mt-2">
+                                <div class="form-group card flex justify-content-center mt-3">
                                     <button pButton label="Login" class="submit-button" [loading]="isLoading" (onClick)="onLogin(loginForm)"></button>
                                 </div>
                             </form>
+                            <hr>
                             <div class="social-login">
-                                <p class="text-center">Or</p>
+                                <p class="text-center">Or Sign in with</p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group card flex justify-content-center">
+                                            <!-- <p-button class="submit-button" label="Plain" [text]="true" [plain]="true"></p-button> -->
+                                            <button pButton class="submit-button p-button-raised google" label="Google" [loading]="isLoading" (onClick)="onLogin(loginForm)"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group card flex justify-content-center">
+                                            <button pButton label="Microsoft" class="submit-button" [loading]="isLoading" (onClick)="onLogin(loginForm)"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group card flex justify-content-center">
+                                            <button pButton label="Github" class="submit-button" [loading]="isLoading" (onClick)="onLogin(loginForm)"></button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,18 @@
-<div class="container">
-    <div class="col-md-6"></div>
+<div class="login-section">
+    <div class="login-header">
+
+    </div>
+    <div class="container rounded-3">
+        <div class="row m-0 p-0 login-box-shadow">   
+    <!-- image -->
+    <div class="col-md-6 m-0 p-0">
+        <img class="logo" [src]="'https://s3.ap-south-1.amazonaws.com/webclient.bucket/Images/login_side_img.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCmFwLXNvdXRoLTEiRzBFAiEAyPnmHPJX7p1dsHgdoS82%2FClqUw7UYCqdoFkcURFXtPgCIGByYKH3SED26lu6VQoAHEtI27D%2Fik9V%2F1XVu55W42YtKuQCCBUQABoMNzQ1ODI0NDM1NjEyIgyyJI1SKr8jQaWqinAqwQJ6DcPaO1n%2BsiqPqT86sj1FfRMl1aNJH7%2FrWDSFHkUXtQwK6pETxATUTLtKXfUL4gbcpQv8MwYTQqetT7vMKjNeM%2FBFwu5XNE4%2B7uXYeMOlVGCL2OIB%2F1H3zG5BGZCPnRSC7QVghUvgM6B4WcksFO9LP5kPaIFEmymVorTdyzlHpFJskxtqg1LEAptQVhPoA4H4ZvGMfh0m6kLHd6PwXa3IcHJGFFDZyeebs6r71VAgQf9jO2tLOZLVJJuDf9elabJ8DMZCtjPiFceYEvprLCoYR3O6%2FIOxzEoh3%2BOEXlVAjNkxOAMfsmastQ7GQFlPCbGAmMa71r%2FHRH%2FxvTw0eYKbyVc%2F6jYGTfC1FBLWRfsFmcMxkomSC5PxqNVBQZabWeZkLd6P0Or3iZBGPsuXGMTQe3onLCpWtL8sTEAZq1aLihcwkYzUqQY6swJjgpIqiJ1xPgqvBCYbRxx6FujEcTVwLfQ5t9uKbvFKEkl2KTaSocTGSrlPCKl3W8DB7%2F4OLGftbbPa30an3mJuT9B6ktxKr%2FP6VXvPBvON2zYmF6JROb%2BKiBrYUYiDi7t7PgEJf4ql%2FVfOyCCQbkpyNqo9lrDy0pbQThpvW5nkqOk2VNe%2BNwLiOS2TfCrX1fRT7%2FNWAQrtE3Ma1OxVy8Ka5Bnh9dxKTr4RsYLcifbl6kyn6lChyj0q7tcMQgwTh05b2iCTTiuKYsArJIKNZq7xxZx4aVVs7osbFdZKmSSvkpBnAYik0ic4Hg6kWC%2FdRAC%2BWlBIgdEVbWmZBuk7w3EblNdbNUPZcKw%2FLpaGzazve4J%2B9iP6JECBHkm9zSYYz12F0an7%2F59fiRd6kg%2FCy0dYLCyF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231022T113128Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIA23JUZXWOCA22CE3H%2F20231022%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=49341cca099ebf00fe90260e43c9ab99c34f2b5c5408e22337b5c9360f7806e4'" alt="Login">
+    </div>
+    <!-- login details -->
+    <div class="col-md-6 m-0 p-0">
+        <img class="logo" [src]="'https://s3.ap-south-1.amazonaws.com/webclient.bucket/Images/login_side_img.jpg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCmFwLXNvdXRoLTEiRzBFAiEAyPnmHPJX7p1dsHgdoS82%2FClqUw7UYCqdoFkcURFXtPgCIGByYKH3SED26lu6VQoAHEtI27D%2Fik9V%2F1XVu55W42YtKuQCCBUQABoMNzQ1ODI0NDM1NjEyIgyyJI1SKr8jQaWqinAqwQJ6DcPaO1n%2BsiqPqT86sj1FfRMl1aNJH7%2FrWDSFHkUXtQwK6pETxATUTLtKXfUL4gbcpQv8MwYTQqetT7vMKjNeM%2FBFwu5XNE4%2B7uXYeMOlVGCL2OIB%2F1H3zG5BGZCPnRSC7QVghUvgM6B4WcksFO9LP5kPaIFEmymVorTdyzlHpFJskxtqg1LEAptQVhPoA4H4ZvGMfh0m6kLHd6PwXa3IcHJGFFDZyeebs6r71VAgQf9jO2tLOZLVJJuDf9elabJ8DMZCtjPiFceYEvprLCoYR3O6%2FIOxzEoh3%2BOEXlVAjNkxOAMfsmastQ7GQFlPCbGAmMa71r%2FHRH%2FxvTw0eYKbyVc%2F6jYGTfC1FBLWRfsFmcMxkomSC5PxqNVBQZabWeZkLd6P0Or3iZBGPsuXGMTQe3onLCpWtL8sTEAZq1aLihcwkYzUqQY6swJjgpIqiJ1xPgqvBCYbRxx6FujEcTVwLfQ5t9uKbvFKEkl2KTaSocTGSrlPCKl3W8DB7%2F4OLGftbbPa30an3mJuT9B6ktxKr%2FP6VXvPBvON2zYmF6JROb%2BKiBrYUYiDi7t7PgEJf4ql%2FVfOyCCQbkpyNqo9lrDy0pbQThpvW5nkqOk2VNe%2BNwLiOS2TfCrX1fRT7%2FNWAQrtE3Ma1OxVy8Ka5Bnh9dxKTr4RsYLcifbl6kyn6lChyj0q7tcMQgwTh05b2iCTTiuKYsArJIKNZq7xxZx4aVVs7osbFdZKmSSvkpBnAYik0ic4Hg6kWC%2FdRAC%2BWlBIgdEVbWmZBuk7w3EblNdbNUPZcKw%2FLpaGzazve4J%2B9iP6JECBHkm9zSYYz12F0an7%2F59fiRd6kg%2FCy0dYLCyF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231022T113128Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIA23JUZXWOCA22CE3H%2F20231022%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=49341cca099ebf00fe90260e43c9ab99c34f2b5c5408e22337b5c9360f7806e4'" alt="Login">
+    </div>
+        </div>
+        
+    </div>
 </div>

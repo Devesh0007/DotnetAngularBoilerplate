@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  isLoading = false;
+  isRememberMeChecked = true;
   constructor(private _loginService: LoginService) {
 
   }
@@ -17,11 +18,12 @@ export class LoginComponent implements OnInit {
 
   }
   onLogin(loginForm: NgForm) {
+    this.isLoading = !this.isLoading;
     console.log("onLogin")
     this._loginService.login(loginForm.value.email, loginForm.value.password).subscribe(result => {
       console.log(result)
-    }, 
-    error => (console.log(error)))
-    
+    },
+      error => (console.log(error)))
+
   }
 }

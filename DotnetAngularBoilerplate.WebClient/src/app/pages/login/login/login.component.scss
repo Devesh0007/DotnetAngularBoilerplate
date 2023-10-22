@@ -1,18 +1,41 @@
-.logo {
-    height: 90vh;
-    display: block;
-    margin: 0 auto;
-    width: 100%;
+.login-cover-image {
+  height: 90vh;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
-.login-section{
-    margin-top: calc(0rem - var(--header-height) - 1rem);
-    margin-left: calc(0rem - var(--nav-width) - 2rem);
-    height: 100vh;
-    width: 100vw;
+.login-section {
+  margin-top: calc(0rem - var(--header-height) - 1rem);
+  margin-left: calc(0rem - var(--nav-width) - 2rem);
+  height: 100vh;
+  width: 100vw;
 }
-.login-header{
-    height: 5vh;
+.login-header {
+  height: 5vh;
 }
-.login-box-shadow{
-    box-shadow: -10px -10px 20px 0 rgba(0, 0, 0, 0.2), 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+.login-box-shadow {
+  box-shadow: -10px -10px 20px 0 rgba(0, 0, 0, 0.2),
+    10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.logo > img {
+  max-width: 100px;
+  max-height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 2rem;
+  border-radius: 19px;
+}
+.logo-slogan {
+  font-family: cursive;
+  font-size: 1.2rem;
+  text-shadow: 5px 10px 8px #888888;
+}
+.login-form {
+  padding: 2rem;
+}
+.submit-button {
+  width: 100% !important;
+  height: 2.5rem !important;
 }

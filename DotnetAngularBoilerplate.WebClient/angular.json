@@ -25,7 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -100,7 +102,9 @@
               "src/assets/images/"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           }
@@ -120,7 +124,11 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
-    }
+    },
+    "@angular-eslint/template/accessibility-elements-content": [
+      "error",
+      { "allowSelectors": ["button[appTooltipLabel]"] }
+    ]
   },
   "cli": {
     "analytics": "a82e623c-1642-403a-a53a-8a6648824e36",

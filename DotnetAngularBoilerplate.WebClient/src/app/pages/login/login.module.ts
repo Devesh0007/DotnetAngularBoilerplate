@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { InputModule,  } from '@ui';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonModule  } from 'primeng/button';
+import { CheckboxModule  } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginRoutingModule,
     InputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    CheckboxModule
   ],
   //providers: [LoginService]
 })

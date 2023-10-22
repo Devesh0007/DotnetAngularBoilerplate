@@ -14,8 +14,11 @@
   height: 5vh;
 }
 .login-box-shadow {
-  box-shadow: -10px -10px 20px 0 rgba(0, 0, 0, 0.2),
-    10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  // box-shadow: -10px -10px 20px 0 rgba(0, 0, 0, 0.2),
+  //   10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .logo > img {
   max-width: 100px;
@@ -26,11 +29,14 @@
   width: 50%;
   margin-top: 2rem;
   border-radius: 19px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 .logo-slogan {
   font-family: cursive;
+  margin-top: 1rem;
+  padding: 0;
+  margin-bottom: 0;
   font-size: 1.2rem;
-  text-shadow: 5px 10px 8px #888888;
 }
 .login-form {
   padding: 1rem 2rem 2rem 2rem;
@@ -55,9 +61,14 @@
 }
 .login-form-card {
   border: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  // box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-.social-media-name{
+.social-media-name {
   font-size: 1.2rem;
   margin-top: 1rem;
   margin-left: 0.5rem;

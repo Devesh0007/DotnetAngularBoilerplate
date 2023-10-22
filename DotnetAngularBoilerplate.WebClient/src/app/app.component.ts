@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Client-app';
-  isNavbarActive: boolean = false;
-
+  isNavbarActive = false;
+  
 }

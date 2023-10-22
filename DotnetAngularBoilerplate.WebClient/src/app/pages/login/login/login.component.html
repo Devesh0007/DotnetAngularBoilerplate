@@ -1,21 +1,21 @@
 <div class="sufee-login d-flex align-content-center flex-wrap">
     <div class="container">
         <div class="login-content">
-            <div class="login-form">
-                <form>
+            <div class="login-form" >
+                <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
                     <div class="form-group">
-                        <label>Email address</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <label for="email">Email address</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" ngModel>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" ngModel>
                     </div>
                     <div class="checkbox">
                         <label>
                             <input type="checkbox"> Remember Me
                         </label>
-                        <label class="pull-right">
+                        <label for="Forgotten Password" class="pull-right">
                             <a href="#">Forgotten Password?</a>
                         </label>
 

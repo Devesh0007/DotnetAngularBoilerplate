@@ -4,18 +4,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule

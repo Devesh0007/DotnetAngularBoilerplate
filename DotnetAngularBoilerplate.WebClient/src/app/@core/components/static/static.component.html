@@ -1,0 +1,6 @@
+<app-navbar *ngIf="sharedService.isNavbarActive"></app-navbar>
+<app-header *ngIf="sharedService.isNavbarActive"></app-header>
+<div class="static-layout">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

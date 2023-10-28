@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PagesRoutingModule } from './pages-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CoreModule } from "../@core/core.module";
-
+import { DashboardComponent, UserManagementComponent } from '@pages';
 
 @NgModule({
     declarations: [
+        UserManagementComponent,
         DashboardComponent
     ],
     imports: [

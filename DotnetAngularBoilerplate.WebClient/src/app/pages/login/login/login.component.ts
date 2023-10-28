@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem(SessionStorageEnum.AccessToken, result.token);
         sessionStorage.setItem(SessionStorageEnum.UserId, result.userId);
         sessionStorage.setItem(SessionStorageEnum.FirstName, result.firstName);
-        sessionStorage.setItem(SessionStorageEnum.UserId, result.lastName);
+        sessionStorage.setItem(SessionStorageEnum.LastName, result.lastName);
         sessionStorage.setItem(SessionStorageEnum.ExpiresOn, Date.parse(result.expiresOn).toString());
         this.sharedService.headerUserName = result.firstName.charAt(0) + result.lastName.charAt(0);
         this.isLoading = false;
         this.sharedService.isNavbarActive = true;
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['']);
       },
       error => {
         console.log(error);

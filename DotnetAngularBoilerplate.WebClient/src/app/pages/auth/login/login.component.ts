@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
 import { NgForm } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 import { ILoginDetails } from 'src/app/@core/interfaces/login.interface';
 import { SessionStorageEnum } from 'src/app/@core/enums/session-storage';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/@shared/services/shared.service';
+import { AuthService } from '@pages';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,12 +14,15 @@ import { SharedService } from 'src/app/@shared/services/shared.service';
 export class LoginComponent implements OnInit {
   isLoading = false;
   isRememberMeChecked = true;
-  isRememberMeChecked2 = true;
-  constructor(private loginService: LoginService, private sharedService: SharedService, private primengConfig: PrimeNGConfig, private router: Router) {
+  constructor(private sharedService: SharedService, private authService: AuthService, private primengConfig: PrimeNGConfig, private router: Router, private route: ActivatedRoute) {
     this.sharedService.isNavbarActive = false;
   }
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    // const isLoggedIn = this.authService.isLoggedIn();
+    // if(isLoggedIn){
+    //   this.router.navigate(['pages', {outlets: {panel: 'pages'}}]);
+    // }
     this.sharedService.headerUserName = sessionStorage.getItem(SessionStorageEnum.FirstName)?.charAt(0) ?? '' + sessionStorage.getItem(SessionStorageEnum.LastName)?.charAt(0) ?? '';
     ///console.log(environment.isProd);
   }
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     console.log(loginDetails)
-    this.loginService.login(loginDetails).subscribe(
+    this.authService.login(loginDetails).subscribe(
       result => {
         sessionStorage.setItem(SessionStorageEnum.AccessToken, result.token);
         sessionStorage.setItem(SessionStorageEnum.UserId, result.userId);

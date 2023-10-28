@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/@shared/services/shared.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SharedService } from 'src/app/@shared/services/shared.service';
 })
 export class NavbarComponent implements OnInit {
   
-  constructor(public sharedService: SharedService){
+  constructor(public sharedService: SharedService, private router: Router, private route: ActivatedRoute){
 
   }
   ngOnInit(): void {
@@ -42,7 +43,6 @@ export class NavbarComponent implements OnInit {
   }
 
   navigateTo(route: string){
-    console.log(route);
-    
+    this.router.navigate([route]);
   }
 }

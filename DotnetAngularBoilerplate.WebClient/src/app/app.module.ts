@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './@core/core.module';
-import { LoginModule } from '@pages';
-import { StaticComponent } from './@core/components/static/static.component';
+import { AuthModule } from '@pages';
+import { CoreModule, StaticComponent } from './@core';
 @NgModule({
   declarations: [
     AppComponent, StaticComponent
@@ -15,7 +14,7 @@ import { StaticComponent } from './@core/components/static/static.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    LoginModule
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

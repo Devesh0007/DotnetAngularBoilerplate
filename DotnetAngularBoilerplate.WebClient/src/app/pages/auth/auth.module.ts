@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login/login.component';
+import { AuthRoutingModule } from './auth-routing.module';
 import { InputModule,  } from '@ui';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule  } from 'primeng/button';
 import { CheckboxModule  } from 'primeng/checkbox';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { CheckboxModule  } from 'primeng/checkbox';
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule,
+    AuthRoutingModule,
     InputModule,
     FormsModule,
     HttpClientModule,
@@ -25,4 +25,4 @@ import { CheckboxModule  } from 'primeng/checkbox';
   ],
   //providers: [LoginService]
 })
-export class LoginModule { }
+export class AuthModule { }

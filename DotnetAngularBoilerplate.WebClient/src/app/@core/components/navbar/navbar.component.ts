@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/@shared/services/shared.service';
 export class NavbarComponent implements OnInit {
   
   constructor(public sharedService: SharedService){
-    
+
   }
   ngOnInit(): void {
     console.log("Navbar")
@@ -41,5 +41,8 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  
+  navigateTo(route: string){
+    console.log(route);
+    
+  }
 }

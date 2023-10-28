@@ -3,4 +3,5 @@ export enum SessionStorageEnum{
   UserId = 'UserId',
   FirstName = 'FirstName',
   LastName = 'LastName',
+  ExpiresOn = 'ValidTo'
 }

@@ -91,6 +91,7 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
                     userId = user.Id,
                     firstName = user.FirstName,
                     lastName = user.LastName,
+                    expiresOn = token.ValidTo,
                 });
             }
             catch (Exception ex)
@@ -105,7 +106,7 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddHours(3),
+                expires: DateTime.UtcNow.AddMinutes(30),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
             );

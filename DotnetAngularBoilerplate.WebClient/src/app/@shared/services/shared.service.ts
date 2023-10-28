@@ -7,7 +7,4 @@ export class SharedService {
 
   isNavbarActive = true;
   headerUserName = '';
-  constructor() { 
-    console.log('shared service')
-  }
 }

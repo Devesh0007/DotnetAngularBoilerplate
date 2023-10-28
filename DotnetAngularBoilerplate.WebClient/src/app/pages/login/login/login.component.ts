@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
       result => {
         sessionStorage.setItem(SessionStorageEnum.AccessToken, result.token);
         sessionStorage.setItem(SessionStorageEnum.UserId, result.userId);
+        sessionStorage.setItem(SessionStorageEnum.FirstName, result.firstName);
+        sessionStorage.setItem(SessionStorageEnum.UserId, result.lastName);
+        this.sharedService.headerUserName = result.firstName.charAt(0) + result.lastName.charAt(0);
         this.isLoading = false;
         this.sharedService.isNavbarActive = true;
         this.router.navigate(['/dashboard']);

@@ -89,6 +89,8 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
                 return Ok(new {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     userId = user.Id,
+                    firstName = user.FirstName,
+                    lastName = user.LastName,
                 });
             }
             catch (Exception ex)

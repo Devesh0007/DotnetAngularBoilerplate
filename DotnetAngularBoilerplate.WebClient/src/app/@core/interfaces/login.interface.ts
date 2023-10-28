@@ -8,5 +8,7 @@ export interface ILoginDetails {
 export interface ILoginResponse {
   token: string;
   userId: string;
+  firstName: string;
+  lastName: string;
 }
 

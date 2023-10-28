@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class SharedService {
 
   isNavbarActive = true;
+  headerUserName = '';
   constructor() { 
     console.log('shared service')
   }

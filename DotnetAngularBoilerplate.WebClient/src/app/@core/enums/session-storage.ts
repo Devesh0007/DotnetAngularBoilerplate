@@ -1,4 +1,6 @@
 export enum SessionStorageEnum{
   AccessToken = 'AccessToken',
-  UserId = 'UserId'
+  UserId = 'UserId',
+  FirstName = 'FirstName',
+  LastName = 'LastName',
 }

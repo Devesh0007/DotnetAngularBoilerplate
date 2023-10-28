@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard, NotFoundComponent, StaticComponent } from './@core';
+import { NotFoundComponent } from './@core';
 
 const routes: Routes = [
   {
     path: '',
-    component: StaticComponent,
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/pages.module').then(x => x.PagesModule)
+    loadChildren: () => import('./pages/pages.module').then(x => x.PagesModule),
   },
   {
     path: 'auth',
@@ -16,7 +14,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent
-  }
+  },
 ];
 
 @NgModule({

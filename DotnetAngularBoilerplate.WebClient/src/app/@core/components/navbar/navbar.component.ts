@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/@shared/services/shared.service';
+import { IMenuItems } from '../../interfaces/menu-items.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +9,27 @@ import { SharedService } from 'src/app/@shared/services/shared.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  
-  constructor(public sharedService: SharedService, private router: Router, private route: ActivatedRoute){
+  menuList: IMenuItems[] = [] as IMenuItems[];
+  activatedRoute = 0;
+  constructor(public sharedService: SharedService, private router: Router, private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
-    console.log("Navbar")
+    this.menuList = [
+      {
+        displayName: 'Dashboard',
+        route: 'dashboard',
+        icon: 'bx bx-grid-alt nav_icon'
+      },
+      {
+        displayName: 'Users',
+        route: 'user-management',
+        icon: 'bx bx-user nav_icon'
+      }
+    ]
+
   }
-  showNavbar(toggleId: string, navId: string, bodyId: string, headerId: string){
+  showNavbar(toggleId: string, navId: string, bodyId: string, headerId: string) {
     const toggle = document.getElementById(toggleId),
       nav = document.getElementById(navId),
       bodypd = document.getElementById(bodyId),
@@ -42,7 +56,19 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  navigateTo(route: string){
+  navigateTo(route: string, index: number) {
     this.router.navigate([route]);
+    this.activatedRoute = index;
+    //document.getElementById('route')?.classList?.add('active')
+  }
+  onLogout() {
+    sessionStorage.clear();
+    this.router.navigate(['/auth/login']);
+  }
+
+  isActive(instruction: string): boolean {
+    const a = this.route.snapshot.component?.toString();
+    // return this.router.isRouteActive(this.router.generate(instruction));
+    return a == instruction;
   }
 }

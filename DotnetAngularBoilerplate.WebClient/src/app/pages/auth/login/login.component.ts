@@ -21,10 +21,9 @@ export class LoginComponent implements OnInit {
     this.primengConfig.ripple = true;
     // const isLoggedIn = this.authService.isLoggedIn();
     // if(isLoggedIn){
-    //   this.router.navigate(['pages', {outlets: {panel: 'pages'}}]);
+    //   this.router.navigate(['/']);
     // }
     this.sharedService.headerUserName = sessionStorage.getItem(SessionStorageEnum.FirstName)?.charAt(0) ?? '' + sessionStorage.getItem(SessionStorageEnum.LastName)?.charAt(0) ?? '';
-    ///console.log(environment.isProd);
   }
   onLogin(loginForm: NgForm) {
     const loginDetails = {

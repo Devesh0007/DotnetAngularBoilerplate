@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { LoginService } from '../login.service';
 import { NgForm } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
+import { ILoginDetails } from 'src/app/@core/interfaces/login.interface';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,20 +17,40 @@ export class LoginComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    //this.primengConfig.ripple = true;
-    console.log(environment.isProd);
-
+    this.primengConfig.ripple = true;
+    ///console.log(environment.isProd);
   }
   onLogin(loginForm: NgForm) {
-    this.isLoading = !this.isLoading;
-    console.log("onLogin")
-    this.loginService.login(loginForm.value.email, loginForm.value.password).subscribe(result => {
-      console.log(result)
-    },
-      error => (console.log(error)))
+    const loginDetails = {
+      email: loginForm.value.loginEmailUsername,
+      username: loginForm.value.loginEmailUsername,
+      password: loginForm.value.loginPassword,
+      rememberMe: loginForm.value.loginRememberMe
+    } as ILoginDetails;
+
+    this.isLoading = true;
+
+    console.log(loginDetails)
+    this.loginService.login(loginDetails).subscribe(
+      result => {
+        console.log(result);
+        this.isLoading = false;
+      },
+      error => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
 
   }
-  forgotPassword(){
-    console.log("forgot password");
+  forgotPassword() {
+    console.log('forgot password');
+  }
+  onSocialLogin(provider: string) {
+    console.log(provider);
+
+  }
+  redirectToRegister() {
+    console.log('redirectToRegister');
   }
 }

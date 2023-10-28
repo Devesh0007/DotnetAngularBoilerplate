@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ILoginDetails } from 'src/app/@core/interfaces/login.interface';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   url = environment.apiBaseUrl;
+  headers = new HttpHeaders({'Content-Type':'application/json'});
+
   //httpOptions: HttpHeaders;
   constructor(private _httpClient: HttpClient) { 
     // Http Options
@@ -20,11 +23,10 @@ export class LoginService {
     return this._httpClient.post('url', params).pipe(catchError(this.handleError));
   }
 
-  login(email: string, password: string) {
-    const params = { email: email, password: password };
-    const headers = new HttpHeaders({'Content-Type':'application/json'});
-    //const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this._httpClient.post((this.url + 'Auth/Login'), JSON.stringify(params), {headers: headers}).pipe(catchError(this.handleError));
+  login(loginDetails: ILoginDetails) {
+    return this._httpClient
+      .post((this.url + 'Auth/Login'), JSON.stringify(loginDetails), {headers: this.headers})
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

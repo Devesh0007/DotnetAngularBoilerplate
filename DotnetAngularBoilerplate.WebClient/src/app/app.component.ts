@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SharedService } from './@shared/services/shared.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +6,4 @@ import { SharedService } from './@shared/services/shared.service';
 })
 export class AppComponent {
   title = 'Client-app';
-  constructor(public sharedService: SharedService){
-  }
 }

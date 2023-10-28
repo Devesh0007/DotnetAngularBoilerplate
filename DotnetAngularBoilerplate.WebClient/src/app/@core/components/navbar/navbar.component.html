@@ -1,6 +1,6 @@
 <body id="body-pd">
   <header class="header" id="header">
-    <div class="header_toggle"><i class="bx bx-menu" id="header-toggle"></i></div>
+    <div [attr.aria-hidden]="true" class="header_toggle" (keyup)="showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')" (click)="showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')"><i class="bx bx-menu" id="header-toggle"></i></div>
     <div class="header_img">
       <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
     </div>

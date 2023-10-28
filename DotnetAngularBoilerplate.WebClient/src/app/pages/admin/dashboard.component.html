@@ -1,1 +1,4 @@
-<p>dashboard works!</p>
+<app-navbar *ngIf="sharedService.isNavbarActive"></app-navbar>
+<app-header *ngIf="sharedService.isNavbarActive"></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

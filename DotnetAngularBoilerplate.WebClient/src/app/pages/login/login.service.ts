@@ -9,13 +9,7 @@ export class LoginService {
   url = environment.apiBaseUrl;
   headers = new HttpHeaders({'Content-Type':'application/json'});
 
-  //httpOptions: HttpHeaders;
   constructor(private _httpClient: HttpClient) { 
-    // Http Options
-    // _httpClient.h = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    //   })
   }
 
   registerUser() {
@@ -25,8 +19,7 @@ export class LoginService {
 
   login(loginDetails: ILoginDetails): Observable<ILoginResponse> {
     return this._httpClient
-      .post<ILoginResponse>((this.url + 'Auth/Login'), JSON.stringify(loginDetails), {headers: this.headers})
-      .pipe(catchError(this.handleError));
+      .post<ILoginResponse>((this.url + 'Auth/Login'), JSON.stringify(loginDetails), {headers: this.headers});
   }
 
   private handleError(error: HttpErrorResponse) {

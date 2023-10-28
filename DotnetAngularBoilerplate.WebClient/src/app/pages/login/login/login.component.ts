@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   isRememberMeChecked = true;
   isRememberMeChecked2 = true;
   constructor(private loginService: LoginService, private sharedService: SharedService, private primengConfig: PrimeNGConfig, private router: Router) {
-
+    this.sharedService.isNavbarActive = false;
   }
   ngOnInit(): void {
     this.primengConfig.ripple = true;

@@ -58,7 +58,9 @@ builder.Services.AddAuthentication(options =>
          ValidateAudience = true,
          ValidAudience = configuration["Jwt:ValidAudience"],
          ValidIssuer = configuration["Jwt:ValidIssuer"],
-         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+         ValidateLifetime = true,
+         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"])),
+         ClockSkew = TimeSpan.FromMinutes(30)
      };
  });
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from './@shared/services/shared.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Client-app';
-  isNavbarActive = false;
-
+  constructor(public sharedService: SharedService){
+  }
 }

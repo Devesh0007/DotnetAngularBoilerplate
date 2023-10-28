@@ -88,7 +88,7 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
 
                 return Ok(new {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiry = token.ValidTo,
+                    userId = user.Id,
                 });
             }
             catch (Exception ex)

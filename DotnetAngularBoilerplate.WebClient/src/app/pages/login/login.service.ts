@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ILoginDetails } from 'src/app/@core/interfaces/login.interface';
+import { ILoginDetails, ILoginResponse } from 'src/app/@core/interfaces/login.interface';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
@@ -23,9 +23,9 @@ export class LoginService {
     return this._httpClient.post('url', params).pipe(catchError(this.handleError));
   }
 
-  login(loginDetails: ILoginDetails) {
+  login(loginDetails: ILoginDetails): Observable<ILoginResponse> {
     return this._httpClient
-      .post((this.url + 'Auth/Login'), JSON.stringify(loginDetails), {headers: this.headers})
+      .post<ILoginResponse>((this.url + 'Auth/Login'), JSON.stringify(loginDetails), {headers: this.headers})
       .pipe(catchError(this.handleError));
   }
 

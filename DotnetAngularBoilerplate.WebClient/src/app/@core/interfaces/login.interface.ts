@@ -4,3 +4,9 @@ export interface ILoginDetails {
   password: string;
   rememberMe: boolean;
 }
+
+export interface ILoginResponse {
+  token: string;
+  userId: string;
+}
+

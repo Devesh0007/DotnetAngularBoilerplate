@@ -4,6 +4,9 @@ import { LoginService } from '../login.service';
 import { NgForm } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 import { ILoginDetails } from 'src/app/@core/interfaces/login.interface';
+import { SessionStorageEnum } from 'src/app/@core/enums/session-storage';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/@shared/services/shared.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +16,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   isRememberMeChecked = true;
   isRememberMeChecked2 = true;
-  constructor(private loginService: LoginService, private primengConfig: PrimeNGConfig) {
+  constructor(private loginService: LoginService, private sharedService: SharedService, private primengConfig: PrimeNGConfig, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -33,8 +36,11 @@ export class LoginComponent implements OnInit {
     console.log(loginDetails)
     this.loginService.login(loginDetails).subscribe(
       result => {
-        console.log(result);
+        sessionStorage.setItem(SessionStorageEnum.AccessToken, result.token);
+        sessionStorage.setItem(SessionStorageEnum.UserId, result.userId);
         this.isLoading = false;
+        this.sharedService.isNavbarActive = true;
+        this.router.navigate(['/dashboard']);
       },
       error => {
         console.log(error);

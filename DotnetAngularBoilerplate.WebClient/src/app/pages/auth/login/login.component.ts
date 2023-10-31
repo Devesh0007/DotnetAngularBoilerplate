@@ -14,6 +14,7 @@ import { AuthService } from '@pages';
 export class LoginComponent implements OnInit {
   isLoading = false;
   isRememberMeChecked = true;
+  showPassword = false;
   constructor(private sharedService: SharedService, private authService: AuthService, private primengConfig: PrimeNGConfig, private router: Router, private route: ActivatedRoute) {
     this.sharedService.isNavbarActive = false;
   }
@@ -64,5 +65,13 @@ export class LoginComponent implements OnInit {
   }
   redirectToRegister() {
     console.log('redirectToRegister');
+  }
+  showHidePassword(element: HTMLInputElement){
+    if(!this.showPassword){
+      element.type = 'text'
+    }else{
+      element.type = 'password'
+    }
+    this.showPassword = !this.showPassword;
   }
 }

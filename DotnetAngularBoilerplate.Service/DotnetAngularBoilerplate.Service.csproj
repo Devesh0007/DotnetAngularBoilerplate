@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Entity\DotnetAngularBoilerplate.Entity.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Mapper\DotnetAngularBoilerplate.Mapper.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Model\DotnetAngularBoilerplate.Model.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Repository.Interface\DotnetAngularBoilerplate.Repository.Interface.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Repository\DotnetAngularBoilerplate.Repository.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Service.Interface\DotnetAngularBoilerplate.Service.Interface.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Shared\DotnetAngularBoilerplate.Shared.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.UnitOfWork.Interface\DotnetAngularBoilerplate.UnitOfWork.Interface.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.UnitOfWork\DotnetAngularBoilerplate.UnitOfWork.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Utility\DotnetAngularBoilerplate.Utility.csproj" />
+  </ItemGroup>
+
 </Project>

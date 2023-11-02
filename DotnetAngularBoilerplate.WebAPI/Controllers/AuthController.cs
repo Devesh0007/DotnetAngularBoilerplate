@@ -1,17 +1,13 @@
-﻿using Azure;
-using DotnetAngularBoilerplate.Mapper;
-using DotnetAngularBoilerplate.Model;
+﻿using DotnetAngularBoilerplate.Model;
 using DotnetAngularBoilerplate.Model.DataModel;
+using DotnetAngularBoilerplate.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text.Unicode;
 using System.Text;
 
 namespace DotnetAngularBoilerplate.WebAPI.Controllers
@@ -21,11 +17,12 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IConfiguration _configuration;
-        public AuthController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        private readonly IAuthService _authService;
+
+        public AuthController(UserManager<ApplicationUser> userManager, IAuthService authService)
         {
             _userManager = userManager;
-            _configuration = configuration;
+            _authService = authService;
         }
 
         [AllowAnonymous]
@@ -34,21 +31,11 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
         {
             try
             {
-                var user = await _userManager.FindByEmailAsync(userDetails.Email);
-                if(user != null)
-                    return BadRequest(new ApiResponseModel(HttpStatusCode.BadRequest, false, message:"Error! User already registered."));
-
-                //Add the User in the database
-                user = ModelToEntity.Map(userDetails);
-                var result = await _userManager.CreateAsync(user, userDetails.Password);
-
-                if (result.Succeeded)
-                {
-                    await _userManager.AddToRoleAsync(user, userDetails.Role);
-                    return Ok(new ApiResponseModel(HttpStatusCode.Created, false, message: "Success! User registered successfully."));
-                }
-
-                return BadRequest(new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error while registering user."));
+                var result = await _authService.RegisterUser(userDetails);
+                if (result.Success)
+                    return Ok(result);
+                else
+                    return BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -66,13 +53,13 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
                 if (user == null)
                 {
                     user = await _userManager.FindByNameAsync(userDetails.UserName);
-                    if(user == null)
+                    if (user == null)
                         return BadRequest(new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error! User not exists."));
                 }
-                
-                if(!await _userManager.CheckPasswordAsync(user, userDetails.Password))
+
+                if (!await _userManager.CheckPasswordAsync(user, userDetails.Password))
                     return Unauthorized(new ApiResponseModel(HttpStatusCode.Unauthorized, false, message: "Error! Invalid password."));
-                
+
                 List<Claim> claims = new()
                 {
                     new Claim(ClaimTypes. Name, user.UserName),
@@ -80,13 +67,18 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
                 };
 
                 var roles = await _userManager.GetRolesAsync(user);
-                foreach (var role in roles) 
+                foreach (var role in roles)
                 {
                     claims.Add(new Claim(ClaimTypes.Role, role));
                 }
-                var token = GenerateJwtToken(claims);
+                claims.Add(new Claim(ClaimTypes.GivenName, user.FirstName));
+                claims.Add(new Claim(ClaimTypes.Surname, user.LastName));
+                claims.Add(new Claim(ClaimTypes.Email, user.Email));
+                claims.Add(new Claim("UserId", user.Id));
+                var token = _authService.GenerateJwtToken(claims);
 
-                return Ok(new {
+                return Ok(new
+                {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     userId = user.Id,
                     firstName = user.FirstName,
@@ -100,17 +92,28 @@ namespace DotnetAngularBoilerplate.WebAPI.Controllers
             }
         }
 
-        private JwtSecurityToken GenerateJwtToken(List<Claim> authClaims)
+        
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> GetLoggedInUserDetails()
         {
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-            var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:ValidIssuer"],
-                audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.UtcNow.AddMinutes(30),
-                claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-            );
-            return token;
+            try
+            {
+                var userInfo = HttpContext.User.Claims.ToList();
+                
+                return Ok(new
+                {
+                    //userId = user.Id,
+                    //firstName = user.FirstName,
+                    //lastName = user.LastName,
+                    //expiresOn = token.ValidTo,
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }

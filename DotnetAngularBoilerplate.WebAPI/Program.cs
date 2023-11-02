@@ -1,5 +1,7 @@
 using DotnetAngularBoilerplate.Entity;
 using DotnetAngularBoilerplate.Model;
+using DotnetAngularBoilerplate.Service;
+using DotnetAngularBoilerplate.Service.Interface;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -104,6 +106,6 @@ app.Run();
 
 void ConfigureServices(IServiceCollection services)
 {
-    //services.
+    services.AddTransient(typeof(IAuthService), typeof(AuthService));
 }
 

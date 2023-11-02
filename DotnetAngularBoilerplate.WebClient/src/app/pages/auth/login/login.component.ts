@@ -6,6 +6,7 @@ import { SessionStorageEnum } from 'src/app/@core/enums/session-storage';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/@shared/services/shared.service';
 import { AuthService } from '@pages';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,10 +21,6 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    // const isLoggedIn = this.authService.isLoggedIn();
-    // if(isLoggedIn){
-    //   this.router.navigate(['/']);
-    // }
     this.sharedService.headerUserName = sessionStorage.getItem(SessionStorageEnum.FirstName)?.charAt(0) ?? '' + sessionStorage.getItem(SessionStorageEnum.LastName)?.charAt(0) ?? '';
   }
   onLogin(loginForm: NgForm) {
@@ -47,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.sharedService.headerUserName = result.firstName.charAt(0) + result.lastName.charAt(0);
         this.isLoading = false;
         this.sharedService.isNavbarActive = true;
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
       },
       error => {
         console.log(error);
@@ -60,16 +57,18 @@ export class LoginComponent implements OnInit {
     console.log('forgot password');
   }
   onSocialLogin(provider: string) {
-    console.log(provider);
-
+    console.log(provider)
+    const ssoSignOnUrl = new URL(environment.ssoSignOnUrl);
+    ssoSignOnUrl.searchParams.append('ssoProvider', provider);
+    window.location.href = ssoSignOnUrl.toString();
   }
   redirectToRegister() {
     console.log('redirectToRegister');
   }
-  showHidePassword(element: HTMLInputElement){
-    if(!this.showPassword){
+  showHidePassword(element: HTMLInputElement) {
+    if (!this.showPassword) {
       element.type = 'text'
-    }else{
+    } else {
       element.type = 'password'
     }
     this.showPassword = !this.showPassword;

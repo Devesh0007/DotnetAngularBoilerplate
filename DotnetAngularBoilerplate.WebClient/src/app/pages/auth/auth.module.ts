@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule  } from 'primeng/button';
 import { CheckboxModule  } from 'primeng/checkbox';
 import { LoginComponent } from './login/login.component';
+import { SsoLoginComponent } from './sso-login/sso-login.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SsoLoginComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,5 @@ import { LoginComponent } from './login/login.component';
     ButtonModule,
     CheckboxModule
   ],
-  //providers: [LoginService]
 })
 export class AuthModule { }

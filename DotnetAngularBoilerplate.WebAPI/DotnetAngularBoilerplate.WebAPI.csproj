@@ -27,6 +27,10 @@
     <ProjectReference Include="..\DotnetAngularBoilerplate.Entity\DotnetAngularBoilerplate.Entity.csproj" />
     <ProjectReference Include="..\DotnetAngularBoilerplate.Mapper\DotnetAngularBoilerplate.Mapper.csproj" />
     <ProjectReference Include="..\DotnetAngularBoilerplate.Model\DotnetAngularBoilerplate.Model.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Service.Interface\DotnetAngularBoilerplate.Service.Interface.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Service\DotnetAngularBoilerplate.Service.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Shared\DotnetAngularBoilerplate.Shared.csproj" />
+    <ProjectReference Include="..\DotnetAngularBoilerplate.Utility\DotnetAngularBoilerplate.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,6 +10,18 @@ export interface ILoginResponse {
   userId: string;
   firstName: string;
   lastName: string;
-  expiresOn: any;
+  expiresOn: string;
 }
 
+export interface IRegisterUserDetails {
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface IRegisterUserResponse {
+  isRegistered: boolean;
+  message: string;
+}

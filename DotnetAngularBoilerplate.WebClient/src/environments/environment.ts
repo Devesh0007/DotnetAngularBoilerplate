@@ -1,4 +1,6 @@
+export const apiBaseUrl = "https://localhost:44364/";
+
 export const environment = {
-    isProd: false,
-    apiBaseUrl: "https://localhost:44364/api/"
+    ssoSignOnUrl: apiBaseUrl + 'api/oidc/InitiateSingleSignOn',
+    ssoSignOutUrl: apiBaseUrl + 'api/oidc/InitiateSingleSignOut'
 };

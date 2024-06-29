@@ -54,26 +54,34 @@ namespace DotnetAngularBoilerplate.Service
 
         public async Task<ApiResponseModel> RegisterUser(RegisterUserDataModel userDetails)
         {
-            if (userDetails is null)
+            try
             {
-                throw new ArgumentNullException(nameof(userDetails));
+                if (userDetails is null)
+                {
+                    throw new ArgumentNullException(nameof(userDetails));
+                }
+
+                var user = await _userManager.FindByEmailAsync(userDetails.Email);
+                if (user != null)
+                    return new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error! User already registered.");
+
+                //Add the User in the database
+                user = ModelToEntity.Map(userDetails);
+                var result = await _userManager.CreateAsync(user, userDetails.Password);
+
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, userDetails.Role);
+                    return new ApiResponseModel(HttpStatusCode.Created, true, message: "Success! User registered successfully.");
+                }
+
+                return new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error while registering user.");
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponseModel(HttpStatusCode.BadRequest, false, message: $"Error while registering user. Exception occurred: {ex.Message}.");
             }
 
-            var user = await _userManager.FindByEmailAsync(userDetails.Email);
-            if (user != null)
-                return new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error! User already registered.");
-
-            //Add the User in the database
-            user = ModelToEntity.Map(userDetails);
-            var result = await _userManager.CreateAsync(user, userDetails.Password);
-
-            if (result.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(user, userDetails.Role);
-                return new ApiResponseModel(HttpStatusCode.Created, false, message: "Success! User registered successfully.");
-            }
-
-            return new ApiResponseModel(HttpStatusCode.BadRequest, false, message: "Error while registering user.");
         }
 
         public JwtSecurityToken GenerateJwtToken(List<Claim> authClaims)
